@@ -29,6 +29,13 @@ request.onload = function () {
       const h1 = document.createElement("h1");
       h1.textContent = movie.title;
 
+      const h2 = document.createElement("h2");
+
+      if (movie.director === "Hayao Miyazaki") {
+        h2.textContent = "";
+      } else {
+        h2.textContent = "Director:" + " " + `${movie.director}`;
+      }
       // Create a p and set the text content to the film's description
       const p = document.createElement("p");
       movie.description = movie.description.substring(0, 300); // Limit to 300 chars
@@ -39,6 +46,7 @@ request.onload = function () {
 
       // Each card will contain an h1 and a p
       card.appendChild(h1);
+      card.appendChild(h2);
       card.appendChild(p);
     });
   } else {
